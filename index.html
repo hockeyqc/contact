@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Formulaire — Hockey Québec</title>
+<style>
+  @font-face {
+    font-family: 'Circular Std';
+    src: url('CircularXX-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  body{font-family:'Circular Std', Arial, sans-serif;margin:18px;background:linear-gradient(180deg,#fff,#f7fbfe);}
+  .wrap{max-width:760px;margin:0 auto;text-align:center;line-height:1.5}
+  .panel{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(2,8,23,.06);margin-top:20px}
+  select{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px;font-size:16px;background:#fff;appearance:none;font-family:'Circular Std', Arial, sans-serif}
+  .results{margin-top:18px;text-align:left;min-height:1px}
+  .card{border:1px solid #e5e7eb;border-radius:10px;padding:14px;background:#fbfdff}
+  .name{font-weight:800;font-size:18px;margin:0 0 6px}
+  .role{color:#64748b;margin:0 0 8px}
+  a.mail{color: #0b66c3; text-decoration:none}
+  a.link{color:#0b66c3;text-decoration:underline}
+  .hidden{display:none}
+  h1{font-size:24px;margin-bottom:8px}
+  h2{margin-top:28px;font-size:20px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Hockey Québec</h1>
+    <p>7665, Boul. Lacordaire<br/>St-Léonard (Québec) H1S 2A7<br/>(514) 252-3079</p>
+    <p><strong>Avant de vous déplacer à nos bureaux</strong>, veuillez S.V.P. vous assurer d'avoir pris rendez-vous au préalable. Étant en télétravail hybride et/ou événements, nous ne pouvons recevoir des visiteurs sans rendez-vous.</p>
+    <p><em>Prendre note que pour accéder à l'entrée principale de la Maison du Loisir et du Sport du Québec, vous devez passer par la rue de Paimpol, puis tourner à gauche sur la rue Antonio-Dagenais.</em></p>
+    <iframe src="https://www.google.com/maps?ll=45.582084,-73.586248&z=16&t=m&hl=fr-FR&gl=US&mapclient=embed&q=7665+Bd+Lacordaire+Saint-Léonard,+QC+H1S+2A7"
+      width="100%" height="300" style="border:0; border-radius:12px; margin-top:12px;" allowfullscreen="" loading="lazy"></iframe>
+
+    <h2>Niveau local</h2>
+    <p>Pour toute question concernant les opérations locales (ex. activités de votre association, camps d’évaluation, inscriptions locales, etc.), communiquez directement avec votre association de hockey mineur.</p>
+    <p><a class="link" href="https://www.hockey.qc.ca/fr/page/hockey_quebec_v2/trouvez_votre_association.html" target="_blank">Trouvez votre AHM</a></p>
+
+    <h2>Niveau régional</h2>
+    <p>Si vous avez déjà contacté votre AHM ou que la situation dépasse le niveau local (ex. regroupements, matchs inter-associations, discipline régionale, etc.), communiquez avec votre région.</p>
+
+    <div class="panel">
+      <select onchange="if(this.value) window.open(this.value,'_blank')">
+        <option value="">— Sélectionnez votre région —</option>
+        <option value="https://www.hockeyat.ca/fr/contact.html">Hockey Abitibi-Témiscamingue</option>
+        <option value="https://www.hockeybsl.com/fr/contact.html">Hockey Bas St-Laurent</option>
+        <option value="https://www.hockeybsl.com/fr/contact.html">Hockey Côte-Nord</option>
+        <option value="https://www.hockeyestrie.qc.ca/fr/contact.html">Hockey Estrie</option>
+        <option value="https://www.hockeygaspesielesiles.ca/fr/contact.html">Hockey Gaspésie Les Îles</option>
+        <option value="https://www.hockeylsl.ca/fr/contact.html">Hockey Lac St-Louis</option>
+        <option value="https://www.hockeyll.ca/fr/contact.html">Hockey Laurentides-Lanaudière</option>
+        <option value="https://www.hockeylaval.com/fr/page/contactez-nous.html">Hockey Laval</option>
+        <option value="https://www.hockeymauricie.ca/fr/contact.html">Hockey Mauricie</option>
+        <option value="https://www.hockeyoutaouais.com/fr/contact.html">Hockey Outaouais</option>
+        <option value="https://www.hockeyregionmontreal.com/fr/contact.html">Hockey Québec région Montréal</option>
+        <option value="https://www.hockeyqca.ca/fr/contact.html">Hockey Québec-Chaudière-Appalaches</option>
+        <option value="https://www.hockey-richelieu.qc.ca/fr/contact.html">Hockey Richelieu</option>
+        <option value="https://www.hockey-saglac.com/fr/contact.html">Hockey Saguenay Lac St-Jean</option>
+      </select>
+    </div>
+
+    <h2>Niveau provincial</h2>
+    <p>Pour toute question de portée provinciale, veuillez choisir l'un des sujets suivants.</p>
+
+    <div class="panel">
+      <select id="hq-topic" onchange="hqOnTopicChange(this.value)">
+        <option value="">— Sélectionnez un sujet —</option>
+        <option value="Administration et comptabilité">Administration et comptabilité</option>
+        <option value="Arbitrage">Arbitrage</option>
+        <option value="Demandes médias">Demandes médias</option>
+        <option value="Entraineur·se">Entraineur·se</option>
+        <option value="Équipe Québec / Programmes d’excellence féminin">Équipe Québec / Programmes d’excellence féminin</option>
+        <option value="Équipe Québec / Programmes d’excellence masculin">Équipe Québec / Programmes d’excellence masculin</option>
+        <option value="Hockey adapté et Parahockey">Hockey adapté et Parahockey</option>
+        <option value="Hockey féminin">Hockey féminin</option>
+        <option value="Initiation/MAHG">Initiation/MAHG</option>
+        <option value="Marketing et partenariats">Marketing et partenariats</option>
+        <option value="Plaintes">Plaintes</option>
+        <option value="Registrariat">Registrariat</option>
+        <option value="Règlementation">Règlementation</option>
+        <option value="Site web/infolettre/réseaux sociaux">Site web/infolettre/réseaux sociaux</option>
+        <option value="Tournois">Tournois</option>
+      </select>
+
+      <select id="hq-region" onchange="hqOnRegionChange(this.value)" class="hidden" style="margin-top:12px;">
+        <option value="">— Sélectionnez votre région —</option>
+        <option>Hockey Abitibi-Témiscamingue</option>
+        <option>Hockey Bas St-Laurent</option>
+        <option>Hockey Côte-Nord</option>
+        <option>Hockey Estrie</option>
+        <option>Hockey Gaspésie Les Îles</option>
+        <option>Hockey Lac St-Louis</option>
+        <option>Hockey Laurentides-Lanaudière</option>
+        <option>Hockey Laval</option>
+        <option>Hockey Mauricie</option>
+        <option>Hockey Outaouais</option>
+        <option>Hockey Québec région Montréal</option>
+        <option>Hockey Québec-Chaudière-Appalaches</option>
+        <option>Hockey Richelieu</option>
+        <option>Hockey Saguenay Lac St-Jean</option>
+      </select>
+
+      <div id="hq-results" class="results"></div>
+    </div>
+  </div>
+
+<script>
+// Reuse the same JavaScript as previous "full" version
+const SUBJECTS_NEED_REGION = new Set(["Arbitrage","Règlementation","Plaintes"]);
+const GLOBAL_CONTACTS = {
+  "Entraineur·se": {name:"Félix Bélanger", role:"Coordonnateur entraîneur·e·s", email:"fbelanger@hockey.qc.ca"},
+  "Initiation/MAHG": {name:"Simon Hardy", role:"Coordonnateur initiation", email:"shardy@hockey.qc.ca"},
+  "Hockey féminin": {name:"Camille Ménard-Lebel", role:"Coordonnatrice hockey féminin", email:"cmenardlebel@hockey.qc.ca"},
+  "Registrariat": {name:"Carole Baril", role:"Coordonnatrice HCR", email:"cbaril@hockey.qc.ca"},
+  "Demandes médias": {name:"Marie-Joël Desaulniers", role:"Directrice des communications et marketing", email:"mjdesaulniers@hockey.qc.ca"},
+  "Marketing et partenariats": {name:"Lisa Bousquet", role:"Coordonnatrice marketing", email:"lbousquet@hockey.qc.ca"},
+  "Site web/infolettre/réseaux sociaux": {name:"François Lachance", role:"Coordonnateur communications", email:"flachance@hockey.qc.ca"},
+  "Équipe Québec / Programmes d’excellence masculin": {name:"Jonathan Marcotte-Levasseur", role:"Coordonnateur programme excellence masculin", email:"jmarcotte@hockey.qc.ca"},
+  "Équipe Québec / Programmes d’excellence féminin": {name:"Katherine Aubry-Hébert", role:"Coordonnatrice Programme excellence féminin", email:"kaubryhebert@hockey.qc.ca"},
+  "Tournois": {name:"Carole Baril", role:"Coordonnatrice HCR", email:"cbaril@hockey.qc.ca"},
+  "Hockey adapté et Parahockey": {name:"Rika Pilon-Robert", role:"Coordonnatrice Hockey Adapté et Parahockey", email:"rpilonrobert@hockey.qc.ca"},
+  "Administration et comptabilité": {name:"Véronique Baril", role:"Directrice générale adjointe", email:"comptabilite@hockey.qc.ca"}
+};
+const ARBITRAGE = {
+  "Hockey Abitibi-Témiscamingue": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s – District Ouest", email:"dcadieux@hockey.qc.ca"},
+  "Hockey Laurentides-Lanaudière": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s – District Ouest", email:"dcadieux@hockey.qc.ca"},
+  "Hockey Outaouais": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s – District Ouest", email:"dcadieux@hockey.qc.ca"},
+  "Hockey Lac St-Louis": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s – District Métro", email:"scampbell@hockey.qc.ca"},
+  "Hockey Laval": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s – District Métro", email:"scampbell@hockey.qc.ca"},
+  "Hockey Québec région Montréal": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s – District Métro", email:"scampbell@hockey.qc.ca"},
+  "Hockey Estrie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s – District Centre", email:"cpauze@hockey.qc.ca"},
+  "Hockey Mauricie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s – District Centre", email:"cpauze@hockey.qc.ca"},
+  "Hockey Richelieu": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s – District Centre", email:"cpauze@hockey.qc.ca"},
+  "Hockey Bas St-Laurent": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Côte-Nord": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Gaspésie Les Îles": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Québec-Chaudière-Appalaches": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Saguenay Lac St-Jean": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"}
+};
+const REGS = {
+  "Hockey Abitibi-Témiscamingue": {name:"Éric Cimon", role:"Coordonnateur – Mobilisation des membres", email:"ecimon@hockey.qc.ca"},
+  "Hockey Laurentides-Lanaudière": {name:"Éric Cimon", role:"Coordonnateur – Mobilisation des membres", email:"ecimon@hockey.qc.ca"},
+  "Hockey Outaouais": {name:"Éric Cimon", role:"Coordonnateur – Mobilisation des membres", email:"ecimon@hockey.qc.ca"},
+  "Hockey Lac St-Louis": {name:"Christophe Perreault", role:"Coordonnateur – Mobilisation des membres", email:"cperreault@hockey.qc.ca"},
+  "Hockey Laval": {name:"Christophe Perreault", role:"Coordonnateur – Mobilisation des membres", email:"cperreault@hockey.qc.ca"},
+  "Hockey Québec région Montréal": {name:"Christophe Perreault", role:"Coordonnateur – Mobilisation des membres", email:"cperreault@hockey.qc.ca"},
+  "Hockey Richelieu": {name:"Pascal Bouchard", role:"Coordonnateur – Mobilisation des membres", email:"pbouchard@hockey.qc.ca"},
+  "Hockey Mauricie": {name:"Pascal Bouchard", role:"Coordonnateur – Mobilisation des membres", email:"pbouchard@hockey.qc.ca"},
+  "Hockey Québec-Chaudière-Appalaches": {name:"Pascal Bouchard", role:"Coordonnateur – Mobilisation des membres", email:"pbouchard@hockey.qc.ca"},
+  "Hockey Saguenay Lac St-Jean": {name:"Pascal Bouchard", role:"Coordonnateur – Mobilisation des membres", email:"pbouchard@hockey.qc.ca"},
+  "Hockey Bas St-Laurent": {name:"Pascal Bouchard", role:"Coordonnateur – Mobilisation des membres", email:"pbouchard@hockey.qc.ca"},
+  "Hockey Côte-Nord": {name:"Pascal Bouchard", role:"Coordonnateur – Mobilisation des membres", email:"pbouchard@hockey.qc.ca"},
+  "Hockey Gaspésie Les Îles": {name:"Pascal Bouchard", role:"Coordonnateur – Mobilisation des membres", email:"pbouchard@hockey.qc.ca"},
+  "Hockey Estrie": {name:"Éric Turcotte", role:"Directeur – Mobilisation des membres", email:"eturcotte@hockey.qc.ca"}
+};
+function renderContact(c){
+  const r = document.getElementById('hq-results');
+  if(!c){r.innerHTML='';return;}
+  r.innerHTML = `<div class="card"><p class="name">${c.name}</p><p class="role">${c.role}</p><p><a class="mail" href="mailto:${c.email}">${c.email}</a></p></div>`;
+}
+function hqOnTopicChange(topicValue){
+  renderContact(null);
+  const regionSelect = document.getElementById('hq-region');
+  if(!topicValue){regionSelect.classList.add('hidden');regionSelect.value="";return;}
+  if(SUBJECTS_NEED_REGION.has(topicValue)){regionSelect.classList.remove('hidden');return;}
+  regionSelect.classList.add('hidden');regionSelect.value="";
+  renderContact(GLOBAL_CONTACTS[topicValue]||null);
+}
+function hqOnRegionChange(regionValue){
+  const topic = document.getElementById('hq-topic').value;
+  if(!topic||!regionValue){renderContact(null);return;}
+  if(topic==="Arbitrage"){renderContact(ARBITRAGE[regionValue]||null);return;}
+  if(topic==="Règlementation"||topic==="Plaintes"){renderContact(REGS[regionValue]||null);return;}
+}
+</script>
+</body>
+</html>
