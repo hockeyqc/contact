@@ -61,6 +61,7 @@
         <option value="https://www.hockeyqca.ca/fr/contact.html">Hockey Québec-Chaudière-Appalaches</option>
         <option value="https://www.hockey-richelieu.qc.ca/fr/contact.html">Hockey Richelieu</option>
         <option value="https://www.hockey-saglac.com/fr/contact.html">Hockey Saguenay Lac St-Jean</option>
+        <option value="https://scolaire.rseqhockey.com/fr/index.html">RSEQ</option>
       </select>
     </div>
 
@@ -70,7 +71,8 @@
     <div class="panel">
       <select id="hq-topic" onchange="hqOnTopicChange(this.value)">
         <option value="">— Sélectionnez un sujet —</option>
-        <option value="Administration et comptabilité">Administration et comptabilité</option>
+        <option value="Administration">Administration</option>
+        <option value="Comptabilité">Comptabilité</option>
         <option value="Arbitrage">Arbitrage</option>
         <option value="Demandes médias">Demandes médias</option>
         <option value="Entraineur·se">Entraineur·se</option>
@@ -103,6 +105,7 @@
         <option>Hockey Québec-Chaudière-Appalaches</option>
         <option>Hockey Richelieu</option>
         <option>Hockey Saguenay Lac St-Jean</option>
+        <option>RSEQ</option>
       </select>
 
       <div id="hq-results" class="results"></div>
@@ -110,9 +113,10 @@
   </div>
 
 <script>
-// Reuse the same JavaScript as previous "full" version
 const SUBJECTS_NEED_REGION = new Set(["Arbitrage","Règlementation","Plaintes"]);
 const GLOBAL_CONTACTS = {
+  "Administration": {name:"Alexandrine Tétreault", role:"Adjointe exécutive", email:"atetreault@hockey.qc.ca"},
+  "Comptabilité": {name:"Véronique Baril", role:"Directrice générale adjointe", email:"comptabilite@hockey.qc.ca"},
   "Entraineur·se": {name:"Félix Bélanger", role:"Coordonnateur entraîneur·e·s", email:"fbelanger@hockey.qc.ca"},
   "Initiation/MAHG": {name:"Simon Hardy", role:"Coordonnateur initiation", email:"shardy@hockey.qc.ca"},
   "Hockey féminin": {name:"Camille Ménard-Lebel", role:"Coordonnatrice hockey féminin", email:"cmenardlebel@hockey.qc.ca"},
@@ -123,24 +127,23 @@ const GLOBAL_CONTACTS = {
   "Équipe Québec / Programmes d’excellence masculin": {name:"Jonathan Marcotte-Levasseur", role:"Coordonnateur programme excellence masculin", email:"jmarcotte@hockey.qc.ca"},
   "Équipe Québec / Programmes d’excellence féminin": {name:"Katherine Aubry-Hébert", role:"Coordonnatrice Programme excellence féminin", email:"kaubryhebert@hockey.qc.ca"},
   "Tournois": {name:"Carole Baril", role:"Coordonnatrice HCR", email:"cbaril@hockey.qc.ca"},
-  "Hockey adapté et Parahockey": {name:"Rika Pilon-Robert", role:"Coordonnatrice Hockey Adapté et Parahockey", email:"rpilonrobert@hockey.qc.ca"},
-  "Administration et comptabilité": {name:"Véronique Baril", role:"Directrice générale adjointe", email:"comptabilite@hockey.qc.ca"}
+  "Hockey adapté et Parahockey": {name:"Rika Pilon-Robert", role:"Coordonnatrice Hockey Adapté et Parahockey", email:"rpilonrobert@hockey.qc.ca"}
 };
 const ARBITRAGE = {
-  "Hockey Abitibi-Témiscamingue": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s – District Ouest", email:"dcadieux@hockey.qc.ca"},
-  "Hockey Laurentides-Lanaudière": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s – District Ouest", email:"dcadieux@hockey.qc.ca"},
-  "Hockey Outaouais": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s – District Ouest", email:"dcadieux@hockey.qc.ca"},
-  "Hockey Lac St-Louis": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s – District Métro", email:"scampbell@hockey.qc.ca"},
-  "Hockey Laval": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s – District Métro", email:"scampbell@hockey.qc.ca"},
-  "Hockey Québec région Montréal": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s – District Métro", email:"scampbell@hockey.qc.ca"},
-  "Hockey Estrie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s – District Centre", email:"cpauze@hockey.qc.ca"},
-  "Hockey Mauricie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s – District Centre", email:"cpauze@hockey.qc.ca"},
-  "Hockey Richelieu": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s – District Centre", email:"cpauze@hockey.qc.ca"},
-  "Hockey Bas St-Laurent": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
-  "Hockey Côte-Nord": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
-  "Hockey Gaspésie Les Îles": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
-  "Hockey Québec-Chaudière-Appalaches": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
-  "Hockey Saguenay Lac St-Jean": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"}
+  "Hockey Abitibi-Témiscamingue": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s", email:"dcadieux@hockey.qc.ca"},
+  "Hockey Laurentides-Lanaudière": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s", email:"dcadieux@hockey.qc.ca"},
+  "Hockey Outaouais": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s", email:"dcadieux@hockey.qc.ca"},
+  "Hockey Lac St-Louis": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s", email:"scampbell@hockey.qc.ca"},
+  "Hockey Laval": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s", email:"scampbell@hockey.qc.ca"},
+  "Hockey Québec région Montréal": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s", email:"scampbell@hockey.qc.ca"},
+  "Hockey Estrie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s", email:"cpauze@hockey.qc.ca"},
+  "Hockey Mauricie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s", email:"cpauze@hockey.qc.ca"},
+  "Hockey Richelieu": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s", email:"cpauze@hockey.qc.ca"},
+  "Hockey Bas St-Laurent": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Côte-Nord": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Gaspésie Les Îles": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Québec-Chaudière-Appalaches": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Saguenay Lac St-Jean": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"}
 };
 const REGS = {
   "Hockey Abitibi-Témiscamingue": {name:"Éric Cimon", role:"Coordonnateur – Mobilisation des membres", email:"ecimon@hockey.qc.ca"},
@@ -171,12 +174,3 @@ function hqOnTopicChange(topicValue){
   regionSelect.classList.add('hidden');regionSelect.value="";
   renderContact(GLOBAL_CONTACTS[topicValue]||null);
 }
-function hqOnRegionChange(regionValue){
-  const topic = document.getElementById('hq-topic').value;
-  if(!topic||!regionValue){renderContact(null);return;}
-  if(topic==="Arbitrage"){renderContact(ARBITRAGE[regionValue]||null);return;}
-  if(topic==="Règlementation"||topic==="Plaintes"){renderContact(REGS[regionValue]||null);return;}
-}
-</script>
-</body>
-</html>
