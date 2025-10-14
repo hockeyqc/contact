@@ -11,19 +11,60 @@
     font-weight: 400;
     font-style: normal;
   }
-  body{font-family:'Circular Std', Arial, sans-serif;margin:18px;background:linear-gradient(180deg,#fff,#f7fbfe);}
-  .wrap{max-width:760px;margin:0 auto;text-align:center;line-height:1.5}
-  .panel{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(2,8,23,.06);margin-top:20px}
-  select{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px;font-size:16px;background:#fff;appearance:none;font-family:'Circular Std', Arial, sans-serif}
-  .results{margin-top:18px;text-align:left;min-height:1px}
-  .card{border:1px solid #e5e7eb;border-radius:10px;padding:14px;background:#fbfdff}
-  .name{font-weight:800;font-size:18px;margin:0 0 6px}
-  .role{color:#64748b;margin:0 0 8px}
-  a.mail{color: #0b66c3; text-decoration:none}
-  a.link{color:#0b66c3;text-decoration:underline}
-  .hidden{display:none}
-  h1{font-size:24px;margin-bottom:8px}
-  h2{margin-top:28px;font-size:20px}
+  body {
+    font-family:'Circular Std', Arial, sans-serif;
+    margin:18px;
+    background:linear-gradient(180deg,#fff,#f7fbfe);
+  }
+  .wrap {
+    max-width:760px;
+    margin:0 auto;
+    text-align:center;
+    line-height:1.5;
+  }
+  .panel {
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:18px;
+    box-shadow:0 8px 30px rgba(2,8,23,.06);
+    margin-top:20px;
+  }
+  select {
+    width:100%;
+    padding:12px;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    font-size:16px;
+    background:#fff;
+    appearance:none;
+    font-family:'Circular Std', Arial, sans-serif;
+  }
+  .results {
+    margin-top:18px;
+    text-align:left;
+    min-height:1px;
+  }
+  .card {
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    padding:14px;
+    background:#fbfdff;
+  }
+  .name {
+    font-weight:800;
+    font-size:18px;
+    margin:0 0 6px;
+  }
+  .role {
+    color:#64748b;
+    margin:0 0 8px;
+  }
+  a.mail {color: #0b66c3; text-decoration:none;}
+  a.link {color:#0b66c3; text-decoration:underline;}
+  .hidden {display:none;}
+  h1 {font-size:24px;margin-bottom:8px;}
+  h2 {margin-top:28px;font-size:20px;}
 </style>
 </head>
 <body>
@@ -32,10 +73,12 @@
     <p>7665, Boul. Lacordaire<br/>St-Léonard (Québec) H1S 2A7<br/>(514) 252-3079</p>
     <p><strong>Avant de vous déplacer à nos bureaux</strong>, veuillez S.V.P. vous assurer d'avoir pris rendez-vous au préalable. Étant en télétravail hybride et/ou événements, nous ne pouvons recevoir des visiteurs sans rendez-vous.</p>
     <p><em>Prendre note que pour accéder à l'entrée principale de la Maison du Loisir et du Sport du Québec, vous devez passer par la rue de Paimpol, puis tourner à gauche sur la rue Antonio-Dagenais.</em></p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.505258992045!2d-73.586248!3d45.582084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91b52e6a76c2b%3A0x7c88e2b3f3f56c40!2s7665%20Bd%20Lacordaire%2C%20Saint-L%C3%A9onard%2C%20QC%20H1S%202A7!5e0!3m2!1sfr!2sca!4v1700000000000!5m2!1sfr!2sca" 
-  width="100%" height="300" style="border:0; border-radius:12px; margin-top:12px;" 
-  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.505258992045!2d-73.586248!3d45.582084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91b52e6a76c2b%3A0x7c88e2b3f3f56c40!2s7665%20Bd%20Lacordaire%2C%20Saint-L%C3%A9onard%2C%20QC%20H1S%202A7!5e0!3m2!1sfr!2sca!4v1700000000000!5m2!1sfr!2sca" 
+      width="100%" height="300" style="border:0; border-radius:12px; margin-top:12px;" 
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
 
     <h2>Niveau local</h2>
     <p>Pour toute question concernant les opérations locales (ex. activités de votre association, camps d’évaluation, inscriptions locales, etc.), communiquez directement avec votre association de hockey mineur.</p>
@@ -129,22 +172,24 @@ const GLOBAL_CONTACTS = {
   "Tournois": {name:"Carole Baril", role:"Coordonnatrice HCR", email:"cbaril@hockey.qc.ca"},
   "Hockey adapté et Parahockey": {name:"Rika Pilon-Robert", role:"Coordonnatrice Hockey Adapté et Parahockey", email:"rpilonrobert@hockey.qc.ca"}
 };
+
 const ARBITRAGE = {
-  "Hockey Abitibi-Témiscamingue": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s", email:"dcadieux@hockey.qc.ca"},
-  "Hockey Laurentides-Lanaudière": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s", email:"dcadieux@hockey.qc.ca"},
-  "Hockey Outaouais": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s", email:"dcadieux@hockey.qc.ca"},
-  "Hockey Lac St-Louis": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s", email:"scampbell@hockey.qc.ca"},
-  "Hockey Laval": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s", email:"scampbell@hockey.qc.ca"},
-  "Hockey Québec région Montréal": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s", email:"scampbell@hockey.qc.ca"},
-  "Hockey Estrie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s", email:"cpauze@hockey.qc.ca"},
-  "Hockey Mauricie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s", email:"cpauze@hockey.qc.ca"},
-  "Hockey Richelieu": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s", email:"cpauze@hockey.qc.ca"},
-  "Hockey Bas St-Laurent": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"},
-  "Hockey Côte-Nord": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"},
-  "Hockey Gaspésie Les Îles": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"},
-  "Hockey Québec-Chaudière-Appalaches": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"},
-  "Hockey Saguenay Lac St-Jean": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s", email:"lpelletier@hockey.qc.ca"}
+  "Hockey Abitibi-Témiscamingue": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s – District Ouest", email:"dcadieux@hockey.qc.ca"},
+  "Hockey Laurentides-Lanaudière": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s – District Ouest", email:"dcadieux@hockey.qc.ca"},
+  "Hockey Outaouais": {name:"Dominic Cadieux", role:"Coordonnateur des officiel·le·s – District Ouest", email:"dcadieux@hockey.qc.ca"},
+  "Hockey Lac St-Louis": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s – District Métro", email:"scampbell@hockey.qc.ca"},
+  "Hockey Laval": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s – District Métro", email:"scampbell@hockey.qc.ca"},
+  "Hockey Québec région Montréal": {name:"Stéphanie Campbell", role:"Coordonnatrice des officiel·le·s – District Métro", email:"scampbell@hockey.qc.ca"},
+  "Hockey Estrie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s – District Centre", email:"cpauze@hockey.qc.ca"},
+  "Hockey Mauricie": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s – District Centre", email:"cpauze@hockey.qc.ca"},
+  "Hockey Richelieu": {name:"Cédric Pauzé", role:"Coordonnateur des officiel·le·s – District Centre", email:"cpauze@hockey.qc.ca"},
+  "Hockey Bas St-Laurent": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Côte-Nord": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Gaspésie Les Îles": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Québec-Chaudière-Appalaches": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"},
+  "Hockey Saguenay Lac St-Jean": {name:"Laurence Pelletier", role:"Coordonnatrice des officiel·le·s – District Est", email:"lpelletier@hockey.qc.ca"}
 };
+
 const REGS = {
   "Hockey Abitibi-Témiscamingue": {name:"Éric Cimon", role:"Coordonnateur – Mobilisation des membres", email:"ecimon@hockey.qc.ca"},
   "Hockey Laurentides-Lanaudière": {name:"Éric Cimon", role:"Coordonnateur – Mobilisation des membres", email:"ecimon@hockey.qc.ca"},
@@ -161,16 +206,8 @@ const REGS = {
   "Hockey Gaspésie Les Îles": {name:"Pascal Bouchard", role:"Coordonnateur – Mobilisation des membres", email:"pbouchard@hockey.qc.ca"},
   "Hockey Estrie": {name:"Éric Turcotte", role:"Directeur – Mobilisation des membres", email:"eturcotte@hockey.qc.ca"}
 };
+
 function renderContact(c){
   const r = document.getElementById('hq-results');
   if(!c){r.innerHTML='';return;}
-  r.innerHTML = `<div class="card"><p class="name">${c.name}</p><p class="role">${c.role}</p><p><a class="mail" href="mailto:${c.email}">${c.email}</a></p></div>`;
-}
-function hqOnTopicChange(topicValue){
-  renderContact(null);
-  const regionSelect = document.getElementById('hq-region');
-  if(!topicValue){regionSelect.classList.add('hidden');regionSelect.value="";return;}
-  if(SUBJECTS_NEED_REGION.has(topicValue)){regionSelect.classList.remove('hidden');return;}
-  regionSelect.classList.add('hidden');regionSelect.value="";
-  renderContact(GLOBAL_CONTACTS[topicValue]||null);
-}
+  r.innerHTML = `<div class="card"><p class="name">${c.name}</
