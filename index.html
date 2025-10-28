@@ -5,93 +5,96 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Formulaire — Hockey Québec</title>
   <style>
-    :root {
-      --hq-blue:#0031ff;
-      --hq-blue-dark:#0020b3;
-      --border:#e5e7eb;
-      --text2:#64748b;
+    @font-face {
+      font-family: 'Circular Std';
+      src: url('CircularXX-Regular.otf') format('opentype');
     }
-    * { box-sizing: border-box; }
     body {
-      font-family: 'Inter', 'Segoe UI', Roboto, system-ui, Arial, sans-serif;
+      font-family:'Circular Std', Arial, sans-serif;
       margin:18px;
       background:linear-gradient(180deg,#fff,#f7fbfe);
-      color:#0f172a;
     }
-    .wrap { max-width:760px; margin:0 auto; text-align:center; line-height:1.5; }
+    .wrap {
+      max-width:760px;
+      margin:0 auto;
+      text-align:center;
+      line-height:1.5;
+    }
     .panel {
-      background:#fff; border:1px solid var(--border); border-radius:12px; padding:18px;
-      box-shadow:0 8px 30px rgba(2,8,23,.06); margin-top:20px;
+      background:#fff;
+      border:1px solid #e5e7eb;
+      border-radius:12px;
+      padding:18px;
+      box-shadow:0 8px 30px rgba(2,8,23,.06);
+      margin-top:20px;
     }
     select {
-      width:100%; padding:12px; border:1px solid var(--border); border-radius:10px;
-      font-size:16px; background:#fff; appearance:none;
-      font-family:inherit;
+      width:100%;
+      padding:12px;
+      border:1px solid #e5e7eb;
+      border-radius:10px;
+      font-size:16px;
+      background:#fff;
+      appearance:none;
+      font-family:'Circular Std', Arial, sans-serif;
     }
-    .results { margin-top:18px; text-align:left; min-height:1px; }
-    .card { border:1px solid var(--border); border-radius:10px; padding:14px; background:#fbfdff; }
-    .name { font-weight:700; font-size:18px; margin:0 0 6px; }
-    .role { color:var(--text2); margin:0 0 8px; }
-    a.mail { color:#0b66c3; text-decoration:none; }
-    a.link { color:#0b66c3; text-decoration:underline; }
-    .hidden { display:none; }
-    h1 { font-size:24px; margin-bottom:8px; }
-    h2 { margin-top:28px; font-size:20px; }
-    ul { margin:8px 0 0 0; text-align:left; }
-    ul li { margin:4px 0; }
+    iframe {
+      width:100%;
+      border:0;
+      border-radius:12px;
+      overflow:hidden;
+    }
+    .map iframe {height:300px;}
+    #regionFrame {height:0;overflow:hidden;}
+    ul{text-align:left;margin-top:8px;}
+    ul li{margin:4px 0;}
     .btn-ahm {
-      display:inline-block; background:var(--hq-blue); color:#fff; font-weight:600;
-      padding:10px 18px; border-radius:8px; text-decoration:none; transition:background .2s;
+      display:inline-block;
+      background:#0031ff;
+      color:#fff;
+      padding:10px 18px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
       margin-top:10px;
     }
-    .btn-ahm:hover { background:var(--hq-blue-dark); }
-    iframe {
-      overflow: hidden;
-      border: 0;
-      border-radius:12px;
-      margin-top:12px;
-      width:100%;
-      height:300px;
-      display:block;
-    }
+    .btn-ahm:hover{background:#0020b3;}
+    .results{margin-top:18px;text-align:left;}
+    .card{border:1px solid #e5e7eb;border-radius:10px;padding:14px;background:#fbfdff;}
+    .name{font-weight:700;font-size:18px;margin:0 0 6px;}
+    .role{color:#64748b;margin:0 0 8px;}
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Hockey Québec</h1>
     <p>7665, Boul. Lacordaire<br/>St-Léonard (Québec) H1S 2A7<br/>(514) 252-3079</p>
-    <p><strong>Avant de vous déplacer à nos bureaux</strong>, veuillez S.V.P. vous assurer d'avoir pris rendez-vous au préalable. Étant en télétravail hybride et/ou en événement, nous ne pouvons recevoir des visiteurs sans rendez-vous.</p>
-    <p><em>Prendre note que pour accéder à l'entrée principale de la Maison du Loisir et du Sport du Québec, vous devez passer par la rue de Paimpol, puis tourner à gauche sur la rue Antonio-Dagenais.</em></p>
 
-    <div class="map-embed">
+    <div class="map">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.505258992045!2d-73.586248!3d45.582084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91b52e6a76c2b%3A0x7c88e2b3f3f56c40!2s7665%20Bd%20Lacordaire%2C%20Saint-L%C3%A9onard%2C%20QC%20H1S%202A7!5e0!3m2!1sfr!2sca!4v1700000000000!5m2!1sfr!2sca"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        allowfullscreen loading="lazy" scrolling="no">
       </iframe>
     </div>
 
     <h2>Niveau local</h2>
-    <p>Pour toute question concernant les opérations locales, communiquez directement avec votre association de hockey mineur, notamment pour :</p>
     <ul>
       <li>Activités de votre association</li>
       <li>Camps d’évaluation</li>
       <li>Inscriptions locales</li>
       <li>Règlementation</li>
       <li>Plaintes</li>
-      <li>Suivi de plaintes (<a class="link" href="https://app.alias-solution.com/contact/fr/ap41f" target="_blank" rel="noopener noreferrer">bouton orange</a>)</li>
+      <li>Suivi de plaintes (<a href="https://app.alias-solution.com/contact/fr/ap41f" target="_blank">bouton orange</a>)</li>
       <li>Etc.</li>
     </ul>
-    <a class="btn-ahm" href="https://www.hockey.qc.ca/fr/page/hockey_quebec_v2/trouvez_votre_association.html" target="_blank" rel="noopener noreferrer">Trouvez votre AHM</a>
+    <a class="btn-ahm" href="https://www.hockey.qc.ca/fr/page/hockey_quebec_v2/trouvez_votre_association.html" target="_blank">Trouvez votre AHM</a>
 
     <h2>Niveau régional</h2>
-    <p>Si vous avez déjà contacté votre AHM ou que la situation dépasse le niveau local, vous pouvez communiquer avec votre région, notamment pour des sujets comme :</p>
     <ul>
-      <li>Plaintes et suivi de plaintes (<a class="link" href="https://app.alias-solution.com/contact/fr/ap41f" target="_blank" rel="noopener noreferrer">bouton orange</a>)</li>
+      <li>Plaintes et suivi de plaintes (<a href="https://app.alias-solution.com/contact/fr/ap41f" target="_blank">bouton orange</a>)</li>
       <li>Règlementation</li>
-      <li>Reclassification (équipes)</li>
-      <li>Surclassement et sous-classement (joueur·se)</li>
-      <li>Regroupements</li>
-      <li>Matchs inter-associations</li>
+      <li>Reclassification</li>
+      <li>Surclassement/sous-classement</li>
       <li>Etc.</li>
     </ul>
 
@@ -101,7 +104,7 @@
         <option value="https://scolaire.rseqhockey.com/fr/index.html">RSEQ</option>
         <option value="https://www.hockeyat.ca/fr/contact.html">Hockey Abitibi-Témiscamingue</option>
         <option value="https://www.hockeybsl.com/fr/contact.html">Hockey Bas St-Laurent</option>
-        <option value="https://www.hockeycotenord.ca/fr/index.html">Hockey Côte-Nord</option>
+        <option value="https://www.hockeycotenord.ca/fr/contact.html">Hockey Côte-Nord</option>
         <option value="https://www.hockeyestrie.qc.ca/fr/contact.html">Hockey Estrie</option>
         <option value="https://www.hockeygaspesielesiles.ca/fr/contact.html">Hockey Gaspésie Les Îles</option>
         <option value="https://www.hockeylsl.ca/fr/contact.html">Hockey Lac St-Louis</option>
@@ -116,16 +119,18 @@
       </select>
     </div>
 
-    <h2>Niveau provincial</h2>
-    <p>Nous recommandons de contacter votre organisation locale ou régionale en premier lieu, lorsqu’il s’agit d’un sujet pouvant être traité à ce niveau.</p>
-    <p>Si le sujet relève directement du provincial, vous pouvez choisir l’un des thèmes suivants.</p>
+    <!-- Iframe vide pour compatibilité Spordle -->
+    <iframe id="regionFrame" title="Compatibilité Spordle" scrolling="no"></iframe>
 
+    <h2>Niveau provincial</h2>
     <div class="panel">
-      <select id="hq-topic" onchange="hqOnTopicChange(this.value)">
+      <select id="hq-topic" onchange="onTopic(this.value)">
         <option value="">— Sélectionnez un sujet —</option>
         <option value="Administration">Administration</option>
+        <option value="Assurances (administrateur·trice)">Assurances (administrateur·trice)</option>
+        <option value="Assurances (joueur·se, personnel de banc, officiel·le)">Assurances (joueur·se, personnel de banc, officiel·le)</option>
+        <option value="Assurances (responsabilité civile)">Assurances (responsabilité civile)</option>
         <option value="Comptabilité">Comptabilité</option>
-        <option value="Officiel·le / Formations">Officiel·le / Formations</option>
         <option value="Demandes médias">Demandes médias</option>
         <option value="Entraîneur·se / Formations">Entraîneur·se / Formations</option>
         <option value="Équipe Québec / Programmes d’excellence féminin">Équipe Québec / Programmes d’excellence féminin</option>
@@ -134,29 +139,60 @@
         <option value="Hockey féminin">Hockey féminin</option>
         <option value="Initiation/MAHG">Initiation/MAHG</option>
         <option value="Marketing et partenariats">Marketing et partenariats</option>
+        <option value="Officiel·le / Formations">Officiel·le / Formations</option>
         <option value="Plaintes">Plaintes</option>
+        <option value="Reclassification (équipe)">Reclassification (équipe)</option>
         <option value="Registrariat">Registrariat</option>
         <option value="Règlementation">Règlementation</option>
-        <option value="Reclassification (équipe)">Reclassification (équipe)</option>
-        <option value="Surclassement et sous-classement (joueur·se)">Surclassement et sous-classement (joueur·se)</option>
-        <option value="Assurances (administrateur·trice)">Assurances (administrateur·trice)</option>
-        <option value="Assurances (responsabilité civile)">Assurances (responsabilité civile)</option>
-        <option value="Assurances (joueur·se, personnel de banc, officiel·le)">Assurances (joueur·se, personnel de banc, officiel·le)</option>
         <option value="Site web/infolettre/réseaux sociaux">Site web/infolettre/réseaux sociaux</option>
+        <option value="Surclassement et sous-classement (joueur·se)">Surclassement et sous-classement (joueur·se)</option>
         <option value="Tournois">Tournois</option>
       </select>
-
       <div id="hq-results" class="results"></div>
     </div>
   </div>
 
   <script>
-    // Ouvre les pages régionales dans un nouvel onglet
+    // ✅ Ouvre toutes les régions dans un nouvel onglet (desktop et mobile)
     function openRegionLink(sel){
-      const link = sel.value;
-      if(!link) return;
-      window.open(link, "_blank", "noopener,noreferrer");
-      sel.selectedIndex = 0;
+      const url = sel.value;
+      if(!url) return;
+      window.open(url,'_blank');
+      sel.value="";
+    }
+
+    // ✅ Contacts provinciaux
+    const CONTACTS = {
+      "Administration": {n:"Alexandrine Tétreault",r:"Adjointe exécutive",m:"atetreault@hockey.qc.ca"},
+      "Comptabilité": {n:"Véronique Baril",r:"Directrice générale adjointe",m:"comptabilite@hockey.qc.ca"},
+      "Demandes médias": {n:"Marie-Joël Desaulniers",r:"Directrice communications et marketing",m:"mjdesaulniers@hockey.qc.ca"},
+      "Entraîneur·se / Formations": {n:"Félix Bélanger",r:"Coordonnateur entraîneur·e·s",m:"fbelanger@hockey.qc.ca"},
+      "Équipe Québec / Programmes d’excellence féminin": {n:"Katerine Aubry-Hébert",r:"Coordonnatrice excellence féminin",m:"kaubryhebert@hockey.qc.ca"},
+      "Équipe Québec / Programmes d’excellence masculin": {n:"Jonathan Marcotte-Levasseur",r:"Coordonnateur excellence masculin",m:"jmarcotte@hockey.qc.ca"},
+      "Hockey adapté et Parahockey": {n:"Rika Pilon-Robert",r:"Coordonnatrice Hockey Adapté",m:"rpilonrobert@hockey.qc.ca"},
+      "Hockey féminin": {n:"Camille Ménard-Lebel",r:"Coordonnatrice hockey féminin",m:"cmenardlebel@hockey.qc.ca"},
+      "Initiation/MAHG": {n:"Simon Hardy",r:"Coordonnateur initiation",m:"shardy@hockey.qc.ca"},
+      "Marketing et partenariats": {n:"Lisa Bousquet",r:"Coordonnatrice marketing",m:"lbousquet@hockey.qc.ca"},
+      "Officiel·le / Formations": {n:"Cédric Pauzé",r:"Coordonnateur des officiel·le·s",m:"cpauze@hockey.qc.ca"},
+      "Registrariat": {n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"},
+      "Site web/infolettre/réseaux sociaux": {n:"François Lachance",r:"Coordonnateur communications",m:"flachance@hockey.qc.ca"},
+      "Tournois": {n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"},
+      "Assurances (joueur·se, personnel de banc, officiel·le)": {n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"}
+    };
+
+    // ✅ Gestion du menu provincial
+    function onTopic(v){
+      const r=document.getElementById('hq-results');
+      r.innerHTML='';
+      if(!v) return;
+      if(v==="Assurances (administrateur·trice)")
+        return window.open("https://media.publicationsports.com/509/6ccd9dfc-2f69-11f0-80ed-0611ff2db335","_blank");
+      if(v==="Assurances (responsabilité civile)")
+        return window.open("https://sportscert.bflcanada.ca/SportHome.aspx","_blank");
+      if(CONTACTS[v]){
+        const c=CONTACTS[v];
+        r.innerHTML=`<div class="card"><p class="name">${c.n}</p><p class="role">${c.r}</p><a href="mailto:${c.m}">${c.m}</a></div>`;
+      }
     }
   </script>
 </body>
