@@ -183,86 +183,136 @@ Avant de vous déplacer à nos bureaux, veuillez S.V.P. vous assurer d'avoir pri
 
 <script>
 function openRegion(sel){
-  const url=sel.value;
-  if(!url)return;
-  const win=window.open(url,'_blank');
-  if(!win){window.location.href=url;}
-  sel.value="";
+  const url = sel.value;
+  if(!url) return;
+  const win = window.open(url,'_blank');
+  if(!win){window.location.href = url;}
+  sel.value = "";
 }
 
-const CONTACTS={
-  "Administration":{n:"Alexandrine Tétreault",r:"Adjointe exécutive",m:"atetreault@hockey.qc.ca"},
-  "Comptabilité":{n:"Véronique Baril",r:"Directrice générale adjointe",m:"comptabilite@hockey.qc.ca"},
-  "Demandes médias":{n:"Marie-Joël Desaulniers",r:"Directrice communications et marketing",m:"mjdesaulniers@hockey.qc.ca"},
-  "Entraîneur·se / Formations":{n:"Félix Bélanger",r:"Coordonnateur entraîneur·e·s",m:"fbelanger@hockey.qc.ca"},
-  "Équipe Québec / Programmes d’excellence féminin":{n:"Katerine Aubry-Hébert",r:"Coordonnatrice excellence féminin",m:"kaubryhebert@hockey.qc.ca"},
-  "Équipe Québec / Programmes d’excellence masculin":{n:"Jonathan Marcotte-Levasseur",r:"Coordonnateur excellence masculin",m:"jmarcotte@hockey.qc.ca"},
-  "Hockey adapté et Parahockey":{n:"Rika Pilon-Robert",r:"Coordonnatrice Hockey Adapté",m:"rpilonrobert@hockey.qc.ca"},
-  "Hockey féminin":{n:"Camille Ménard-Lebel",r:"Coordonnatrice hockey féminin",m:"cmenardlebel@hockey.qc.ca"},
-  "Initiation/MAHG":{n:"Simon Hardy",r:"Coordonnateur initiation",m:"shardy@hockey.qc.ca"},
-  "Marketing et partenariats":{n:"Lisa Bousquet",r:"Coordonnatrice marketing",m:"lbousquet@hockey.qc.ca"},
-  "Officiel·le / Formations":{n:"Cédric Pauzé",r:"Coordonnateur des officiel·le·s",m:"cpauze@hockey.qc.ca"},
-  "Registrariat":{n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"},
-  "Site web/infolettre/réseaux sociaux":{n:"François Lachance",r:"Coordonnateur communications",m:"flachance@hockey.qc.ca"},
-  "Tournois":{n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"},
-  "Assurances (joueur·se, personnel de banc, officiel·le)":{n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"}
+// Coordonnées générales HQ
+const CONTACTS = {
+  "Administration": {n:"Alexandrine Tétreault",r:"Adjointe exécutive",m:"atetreault@hockey.qc.ca"},
+  "Comptabilité": {n:"Véronique Baril",r:"Directrice générale adjointe",m:"comptabilite@hockey.qc.ca"},
+  "Demandes médias": {n:"Marie-Joël Desaulniers",r:"Directrice communications et marketing",m:"mjdesaulniers@hockey.qc.ca"},
+  "Entraîneur·se / Formations": {n:"Félix Bélanger",r:"Coordonnateur entraîneur·e·s",m:"fbelanger@hockey.qc.ca"},
+  "Équipe Québec / Programmes d’excellence féminin": {n:"Katerine Aubry-Hébert",r:"Coordonnatrice excellence féminin",m:"kaubryhebert@hockey.qc.ca"},
+  "Équipe Québec / Programmes d’excellence masculin": {n:"Jonathan Marcotte-Levasseur",r:"Coordonnateur excellence masculin",m:"jmarcotte@hockey.qc.ca"},
+  "Hockey adapté et Parahockey": {n:"Rika Pilon-Robert",r:"Coordonnatrice Hockey Adapté",m:"rpilonrobert@hockey.qc.ca"},
+  "Hockey féminin": {n:"Camille Ménard-Lebel",r:"Coordonnatrice hockey féminin",m:"cmenardlebel@hockey.qc.ca"},
+  "Initiation/MAHG": {n:"Simon Hardy",r:"Coordonnateur initiation",m:"shardy@hockey.qc.ca"},
+  "Marketing et partenariats": {n:"Lisa Bousquet",r:"Coordonnatrice marketing",m:"lbousquet@hockey.qc.ca"},
+  "Registrariat": {n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"},
+  "Site web/infolettre/réseaux sociaux": {n:"François Lachance",r:"Coordonnateur communications",m:"flachance@hockey.qc.ca"},
+  "Tournois": {n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"},
+  "Assurances (joueur·se, personnel de banc, officiel·le)": {n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"}
 };
 
-const REG_COORDS={
-  "Hockey Abitibi-Témiscamingue":{n:"Éric Cimon",r:"Coordonnateur Mobilisation",m:"ecimon@hockey.qc.ca"},
-  "Hockey Bas St-Laurent":{n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
-  "Hockey Côte-Nord":{n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
-  "Hockey Estrie":{n:"Éric Turcotte",r:"Directeur Mobilisation",m:"eturcotte@hockey.qc.ca"},
-  "Hockey Gaspésie Les Îles":{n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
-  "Hockey Lac St-Louis":{n:"Christophe Perreault",r:"Coordonnateur Mobilisation",m:"cperreault@hockey.qc.ca"},
-  "Hockey Laurentides-Lanaudière":{n:"Éric Cimon",r:"Coordonnateur Mobilisation",m:"ecimon@hockey.qc.ca"},
-  "Hockey Laval":{n:"Christophe Perreault",r:"Coordonnateur Mobilisation",m:"cperreault@hockey.qc.ca"},
-  "Hockey Mauricie":{n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
-  "Hockey Outaouais":{n:"Éric Cimon",r:"Coordonnateur Mobilisation",m:"ecimon@hockey.qc.ca"},
-  "Hockey Québec région Montréal":{n:"Christophe Perreault",r:"Coordonnateur Mobilisation",m:"cperreault@hockey.qc.ca"},
-  "Hockey Québec-Chaudière-Appalaches":{n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
-  "Hockey Richelieu":{n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
-  "Hockey Saguenay Lac St-Jean":{n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"}
+// Coordonnées régionales pour les officiels
+const ARBITRAGE = {
+  "Hockey Abitibi-Témiscamingue": {n:"Dominic Cadieux",r:"Coordonnateur des officiel·le·s – District Ouest",m:"dcadieux@hockey.qc.ca"},
+  "Hockey Laurentides-Lanaudière": {n:"Dominic Cadieux",r:"Coordonnateur des officiel·le·s – District Ouest",m:"dcadieux@hockey.qc.ca"},
+  "Hockey Outaouais": {n:"Dominic Cadieux",r:"Coordonnateur des officiel·le·s – District Ouest",m:"dcadieux@hockey.qc.ca"},
+
+  "Hockey Laval": {n:"Stéphanie Campbell",r:"Coordonnatrice des officiel·le·s – District Métro",m:"scampbell@hockey.qc.ca"},
+  "Hockey Lac St-Louis": {n:"Stéphanie Campbell",r:"Coordonnatrice des officiel·le·s – District Métro",m:"scampbell@hockey.qc.ca"},
+  "Hockey Québec région Montréal": {n:"Stéphanie Campbell",r:"Coordonnatrice des officiel·le·s – District Métro",m:"scampbell@hockey.qc.ca"},
+
+  "Hockey Estrie": {n:"Cédric Pauzé",r:"Coordonnateur des officiel·le·s – District Centre",m:"cpauze@hockey.qc.ca"},
+  "Hockey Mauricie": {n:"Cédric Pauzé",r:"Coordonnateur des officiel·le·s – District Centre",m:"cpauze@hockey.qc.ca"},
+  "Hockey Richelieu": {n:"Cédric Pauzé",r:"Coordonnateur des officiel·le·s – District Centre",m:"cpauze@hockey.qc.ca"},
+
+  "Hockey Bas St-Laurent": {n:"Laurence Pelletier",r:"Coordonnatrice des officiel·le·s – District Est",m:"lpelletier@hockey.qc.ca"},
+  "Hockey Côte-Nord": {n:"Laurence Pelletier",r:"Coordonnatrice des officiel·le·s – District Est",m:"lpelletier@hockey.qc.ca"},
+  "Hockey Gaspésie Les Îles": {n:"Laurence Pelletier",r:"Coordonnatrice des officiel·le·s – District Est",m:"lpelletier@hockey.qc.ca"},
+  "Hockey Québec-Chaudière-Appalaches": {n:"Laurence Pelletier",r:"Coordonnatrice des officiel·le·s – District Est",m:"lpelletier@hockey.qc.ca"},
+  "Hockey Saguenay Lac St-Jean": {n:"Laurence Pelletier",r:"Coordonnatrice des officiel·le·s – District Est",m:"lpelletier@hockey.qc.ca"}
 };
 
-const SUBJECTS_NEED_REGION=new Set(["Plaintes","Règlementation","Reclassification (équipe)","Surclassement et sous-classement (joueur·se)"]);
+// Coordonnées régionales Mobilisation
+const REG_COORDS = {
+  "Hockey Abitibi-Témiscamingue": {n:"Éric Cimon",r:"Coordonnateur Mobilisation",m:"ecimon@hockey.qc.ca"},
+  "Hockey Bas St-Laurent": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
+  "Hockey Côte-Nord": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
+  "Hockey Estrie": {n:"Éric Turcotte",r:"Directeur Mobilisation",m:"eturcotte@hockey.qc.ca"},
+  "Hockey Gaspésie Les Îles": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
+  "Hockey Lac St-Louis": {n:"Christophe Perreault",r:"Coordonnateur Mobilisation",m:"cperreault@hockey.qc.ca"},
+  "Hockey Laurentides-Lanaudière": {n:"Éric Cimon",r:"Coordonnateur Mobilisation",m:"ecimon@hockey.qc.ca"},
+  "Hockey Laval": {n:"Christophe Perreault",r:"Coordonnateur Mobilisation",m:"cperreault@hockey.qc.ca"},
+  "Hockey Mauricie": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
+  "Hockey Outaouais": {n:"Éric Cimon",r:"Coordonnateur Mobilisation",m:"ecimon@hockey.qc.ca"},
+  "Hockey Québec région Montréal": {n:"Christophe Perreault",r:"Coordonnateur Mobilisation",m:"cperreault@hockey.qc.ca"},
+  "Hockey Québec-Chaudière-Appalaches": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
+  "Hockey Richelieu": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"},
+  "Hockey Saguenay Lac St-Jean": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation",m:"pbouchard@hockey.qc.ca"}
+};
+
+// Sujets qui nécessitent la sélection d'une région
+const SUBJECTS_NEED_REGION = new Set([
+  "Plaintes",
+  "Règlementation",
+  "Reclassification (équipe)",
+  "Surclassement et sous-classement (joueur·se)",
+  "Officiel·le / Formations" //
+]);
 
 function onTopic(sel){
-  const val=sel.value;
-  const regSel=document.getElementById("provRegionSelect");
-  const res=document.getElementById("provResults");
-  res.innerHTML="";
-  if(!val){regSel.classList.add("hidden");return;}
-if(val === "Assurances (administrateur·trice)" || val === "Assurances (responsabilité civile)"){
-    const links={
-      "Assurances (administrateur·trice)":"https://media.publicationsports.com/509/6ccd9dfc-2f69-11f0-80ed-0611ff2db335",
-      "Assurances (responsabilité civile)":"https://media.publicationsports.com/509/6c60b2eb-2f69-11f0-80ed-0611ff2db335?_gl=1*5wid2g*_ga*NTExNjM1MjAuMTc0NDgyNDAzMQ..*_ga_LNPH6KZP0Q*czE3NjE3NTk2NzIkbzkxJGcxJHQxNzYxNzYzOTIzJGo0NSRsMCRoMA.."
+  const val = sel.value;
+  const regSel = document.getElementById("provRegionSelect");
+  const res = document.getElementById("provResults");
+  res.innerHTML = "";
+
+  if(!val){ regSel.classList.add("hidden"); return; }
+
+  // Liens externes assurances
+  if(val === "Assurances (administrateur·trice)" || val === "Assurances (responsabilité civile)"){
+    const links = {
+      "Assurances (administrateur·trice)": "https://media.publicationsports.com/509/6ccd9dfc-2f69-11f0-80ed-0611ff2db335",
+      "Assurances (responsabilité civile)": "https://media.publicationsports.com/509/6c60b2eb-2f69-11f0-80ed-0611ff2db335"
     };
-    const url=links[val];
-    const win=window.open(url,'_blank');
-    if(!win)window.location.href=url;
-    sel.value="";
+    const url = links[val];
+    const win = window.open(url,'_blank');
+    if(!win) window.location.href = url;
+    sel.value = "";
     return;
   }
+
+  // Sujets nécessitant la région
   if(SUBJECTS_NEED_REGION.has(val)){
     regSel.classList.remove("hidden");
     return;
   }
+
   regSel.classList.add("hidden");
   renderContact(CONTACTS[val]);
 }
 
 function onProvRegion(sel){
-  const region=sel.value;
-  const res=document.getElementById("provResults");
-  if(!region){res.innerHTML="";return;}
+  const region = sel.value;
+  const topic = document.getElementById("topicSelect").value;
+  const res = document.getElementById("provResults");
+
+  if(!region){ res.innerHTML = ""; return; }
+
+  // ✅ Si le sujet est "Officiel·le / Formations", afficher contact d'arbitrage
+  if(topic === "Officiel·le / Formations"){
+    renderContact(ARBITRAGE[region]);
+    return;
+  }
+
+  // Sinon, sujets Mobilisation (Plaintes, Règlementation, etc.)
   renderContact(REG_COORDS[region]);
 }
 
 function renderContact(c){
-  const res=document.getElementById("provResults");
-  if(!c){res.innerHTML="";return;}
-  res.innerHTML=`<div class="card"><p class="name">${c.n}</p><p class="role">${c.r}</p><p><a href="mailto:${c.m}">${c.m}</a></p></div>`;
+  const res = document.getElementById("provResults");
+  if(!c){ res.innerHTML = ""; return; }
+  res.innerHTML = `
+    <div class="card">
+      <p class="name">${c.n}</p>
+      <p class="role">${c.r}</p>
+      <p><a href="mailto:${c.m}">${c.m}</a></p>
+    </div>`;
 }
 </script>
 </body>
