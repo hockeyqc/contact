@@ -10,59 +10,61 @@
       src: url('CircularXX-Regular.otf') format('opentype');
     }
     body {
-      font-family:'Circular Std', Arial, sans-serif;
-      margin:18px;
-      background:linear-gradient(180deg,#fff,#f7fbfe);
+      font-family: 'Circular Std', Arial, sans-serif;
+      margin: 18px;
+      background: linear-gradient(180deg,#fff,#f7fbfe);
     }
     .wrap {
-      max-width:760px;
-      margin:0 auto;
-      text-align:center;
-      line-height:1.5;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.5;
     }
     .panel {
-      background:#fff;
-      border:1px solid #e5e7eb;
-      border-radius:12px;
-      padding:18px;
-      box-shadow:0 8px 30px rgba(2,8,23,.06);
-      margin-top:20px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 8px 30px rgba(2,8,23,.06);
+      margin-top: 20px;
     }
     select {
-      width:100%;
-      padding:12px;
-      border:1px solid #e5e7eb;
-      border-radius:10px;
-      font-size:16px;
-      background:#fff;
-      appearance:none;
-      font-family:'Circular Std', Arial, sans-serif;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 16px;
+      background: #fff;
+      appearance: none;
+      font-family: 'Circular Std', Arial, sans-serif;
     }
     iframe {
-      width:100%;
-      border:0;
-      border-radius:12px;
-      overflow:hidden;
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      scrolling: no;
     }
-    .map iframe {height:300px;}
-    #regionFrame {height:0;overflow:hidden;}
-    ul{text-align:left;margin-top:8px;}
-    ul li{margin:4px 0;}
+    .map iframe {height: 300px;}
+    #regionFrame {height: 0; overflow: hidden;}
+    ul {text-align: left; margin-top: 8px;}
+    ul li {margin: 4px 0;}
     .btn-ahm {
-      display:inline-block;
-      background:#0031ff;
-      color:#fff;
-      padding:10px 18px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-      margin-top:10px;
+      display: inline-block;
+      background: #0031ff;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 10px;
     }
-    .btn-ahm:hover{background:#0020b3;}
-    .results{margin-top:18px;text-align:left;}
-    .card{border:1px solid #e5e7eb;border-radius:10px;padding:14px;background:#fbfdff;}
-    .name{font-weight:700;font-size:18px;margin:0 0 6px;}
-    .role{color:#64748b;margin:0 0 8px;}
+    .btn-ahm:hover {background: #0020b3;}
+    .results {margin-top: 18px; text-align: left;}
+    .card {border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px; background: #fbfdff;}
+    .name {font-weight: 700; font-size: 18px; margin: 0 0 6px;}
+    .role {color: #64748b; margin: 0 0 8px;}
+    h2 {margin-top: 28px; font-size: 20px;}
   </style>
 </head>
 <body>
@@ -71,13 +73,17 @@
     <p>7665, Boul. Lacordaire<br/>St-Léonard (Québec) H1S 2A7<br/>(514) 252-3079</p>
 
     <div class="map">
-      <iframe
+      <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.505258992045!2d-73.586248!3d45.582084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91b52e6a76c2b%3A0x7c88e2b3f3f56c40!2s7665%20Bd%20Lacordaire%2C%20Saint-L%C3%A9onard%2C%20QC%20H1S%202A7!5e0!3m2!1sfr!2sca!4v1700000000000!5m2!1sfr!2sca"
         allowfullscreen loading="lazy" scrolling="no">
       </iframe>
     </div>
 
+    <!-- 🔹 NIVEAU LOCAL -->
     <h2>Niveau local</h2>
+    <p>
+      Pour toute question concernant les opérations locales, communiquez directement avec votre association de hockey mineur, notamment pour :
+    </p>
     <ul>
       <li>Activités de votre association</li>
       <li>Camps d’évaluation</li>
@@ -89,12 +95,18 @@
     </ul>
     <a class="btn-ahm" href="https://www.hockey.qc.ca/fr/page/hockey_quebec_v2/trouvez_votre_association.html" target="_blank">Trouvez votre AHM</a>
 
+    <!-- 🔹 NIVEAU RÉGIONAL -->
     <h2>Niveau régional</h2>
+    <p>
+      Si vous avez déjà contacté votre AHM ou que la situation dépasse le niveau local, vous pouvez communiquer avec votre région, notamment pour des sujets comme :
+    </p>
     <ul>
       <li>Plaintes et suivi de plaintes (<a href="https://app.alias-solution.com/contact/fr/ap41f" target="_blank">bouton orange</a>)</li>
       <li>Règlementation</li>
-      <li>Reclassification</li>
-      <li>Surclassement/sous-classement</li>
+      <li>Reclassification (équipes)</li>
+      <li>Surclassement et sous-classement (joueur·se)</li>
+      <li>Regroupements</li>
+      <li>Matchs inter-associations</li>
       <li>Etc.</li>
     </ul>
 
@@ -119,12 +131,20 @@
       </select>
     </div>
 
-    <!-- Iframe vide pour compatibilité Spordle -->
+    <!-- Iframe Spordle (vide mais présent) -->
     <iframe id="regionFrame" title="Compatibilité Spordle" scrolling="no"></iframe>
 
+    <!-- 🔹 NIVEAU PROVINCIAL -->
     <h2>Niveau provincial</h2>
+    <p>
+      Nous recommandons de contacter votre organisation locale ou régionale en premier lieu, lorsqu’il s’agit d’un sujet pouvant être traité à ce niveau.
+    </p>
+    <p>
+      Si le sujet relève directement du provincial, vous pouvez choisir l’un des thèmes suivants.
+    </p>
+
     <div class="panel">
-      <select id="hq-topic" onchange="onTopic(this.value)">
+      <select id="hq-topic" onchange="onTopicChange(this.value)">
         <option value="">— Sélectionnez un sujet —</option>
         <option value="Administration">Administration</option>
         <option value="Assurances (administrateur·trice)">Assurances (administrateur·trice)</option>
@@ -148,20 +168,39 @@
         <option value="Surclassement et sous-classement (joueur·se)">Surclassement et sous-classement (joueur·se)</option>
         <option value="Tournois">Tournois</option>
       </select>
+
+      <select id="hq-region" onchange="onRegionChange(this.value)" class="hidden" style="margin-top:12px;">
+        <option value="">— Sélectionnez votre région —</option>
+        <option>Hockey Abitibi-Témiscamingue</option>
+        <option>Hockey Bas St-Laurent</option>
+        <option>Hockey Côte-Nord</option>
+        <option>Hockey Estrie</option>
+        <option>Hockey Gaspésie Les Îles</option>
+        <option>Hockey Lac St-Louis</option>
+        <option>Hockey Laurentides-Lanaudière</option>
+        <option>Hockey Laval</option>
+        <option>Hockey Mauricie</option>
+        <option>Hockey Outaouais</option>
+        <option>Hockey Québec région Montréal</option>
+        <option>Hockey Québec-Chaudière-Appalaches</option>
+        <option>Hockey Richelieu</option>
+        <option>Hockey Saguenay Lac St-Jean</option>
+      </select>
+
       <div id="hq-results" class="results"></div>
     </div>
   </div>
 
   <script>
-    // ✅ Ouvre toutes les régions dans un nouvel onglet (desktop et mobile)
+    // ✅ Ouverture des régions dans un nouvel onglet
     function openRegionLink(sel){
       const url = sel.value;
       if(!url) return;
-      window.open(url,'_blank');
-      sel.value="";
+      window.open(url, '_blank');
+      sel.value = "";
     }
 
-    // ✅ Contacts provinciaux
+    // ✅ Contacts principaux
     const CONTACTS = {
       "Administration": {n:"Alexandrine Tétreault",r:"Adjointe exécutive",m:"atetreault@hockey.qc.ca"},
       "Comptabilité": {n:"Véronique Baril",r:"Directrice générale adjointe",m:"comptabilite@hockey.qc.ca"},
@@ -180,19 +219,38 @@
       "Assurances (joueur·se, personnel de banc, officiel·le)": {n:"Carole Baril",r:"Coordonnatrice HCR",m:"cbaril@hockey.qc.ca"}
     };
 
+    const SUBJECTS_NEED_REGION = new Set(["Plaintes","Règlementation","Reclassification (équipe)","Surclassement et sous-classement (joueur·se)"]);
+
     // ✅ Gestion du menu provincial
-    function onTopic(v){
-      const r=document.getElementById('hq-results');
-      r.innerHTML='';
-      if(!v) return;
-      if(v==="Assurances (administrateur·trice)")
+    function onTopicChange(val){
+      const regionSelect = document.getElementById('hq-region');
+      const r = document.getElementById('hq-results');
+      r.innerHTML = "";
+      regionSelect.classList.add("hidden");
+      if(!val) return;
+
+      // liens externes assurances
+      if(val === "Assurances (administrateur·trice)")
         return window.open("https://media.publicationsports.com/509/6ccd9dfc-2f69-11f0-80ed-0611ff2db335","_blank");
-      if(v==="Assurances (responsabilité civile)")
+      if(val === "Assurances (responsabilité civile)")
         return window.open("https://sportscert.bflcanada.ca/SportHome.aspx","_blank");
-      if(CONTACTS[v]){
-        const c=CONTACTS[v];
-        r.innerHTML=`<div class="card"><p class="name">${c.n}</p><p class="role">${c.r}</p><a href="mailto:${c.m}">${c.m}</a></div>`;
+
+      if(SUBJECTS_NEED_REGION.has(val)){
+        regionSelect.classList.remove("hidden");
+        return;
       }
+
+      if(CONTACTS[val]){
+        const c = CONTACTS[val];
+        r.innerHTML = `<div class="card"><p class="name">${c.n}</p><p class="role">${c.r}</p><a href="mailto:${c.m}">${c.m}</a></div>`;
+      }
+    }
+
+    // ✅ Gestion du menu régional dans le niveau provincial
+    function onRegionChange(region){
+      const r = document.getElementById('hq-results');
+      if(!region){r.innerHTML="";return;}
+      r.innerHTML = `<div class="card"><p>Veuillez contacter votre coordonnateur ou coordonnatrice régional·e pour les questions de plaintes, règlementation, reclassification ou surclassement.</p></div>`;
     }
   </script>
 </body>
