@@ -326,5 +326,32 @@ function renderContact(c){
     </div>`;
 }
 </script>
+<script>
+(function () {
+  function postHeight() {
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight
+    );
+    parent.postMessage({ type: 'hq-resize', height: h }, '*');
+  }
+
+  window.addEventListener('load', postHeight);
+
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.documentElement);
+  }
+  if ('MutationObserver' in window) {
+    new MutationObserver(postHeight).observe(document.documentElement, {
+      childList: true, subtree: true, attributes: true
+    });
+  }
+  window.addEventListener('resize', postHeight);
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(postHeight);
+  }
+})();
+</script>
 </body>
 </html>
