@@ -171,6 +171,7 @@ Avant de vous déplacer à nos bureaux, veuillez S.V.P. vous assurer d'avoir pri
 
     <select id="provRegionSelect" onchange="onProvRegion(this)" class="hidden" style="margin-top:12px;">
       <option value="">— Sélectionnez votre région —</option>
+      <option id="provRseqOption" hidden>RSEQ</option>
       <option>Hockey Abitibi-Témiscamingue</option>
       <option>Hockey Bas St-Laurent</option>
       <option>Hockey Côte-Nord</option>
@@ -242,6 +243,7 @@ const ARBITRAGE = {
 
 // Coordonnées régionales Mobilisation
 const REG_COORDS = {
+  "RSEQ": {n:"Christophe Perreault",r:"Coordonnateur Mobilisation des membres",m:"cperreault@hockey.qc.ca"},
   "Hockey Abitibi-Témiscamingue": {n:"Sébastien Leblanc",r:"Coordonnateur Mobilisation des membres",m:"sleblanc@hockey.qc.ca"},
   "Hockey Bas St-Laurent": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation des membres",m:"pbouchard@hockey.qc.ca"},
   "Hockey Côte-Nord": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation des membres",m:"pbouchard@hockey.qc.ca"},
@@ -258,20 +260,32 @@ const REG_COORDS = {
   "Hockey Saguenay Lac St-Jean": {n:"Pascal Bouchard",r:"Coordonnateur Mobilisation des membres",m:"pbouchard@hockey.qc.ca"}
 };
 
-// Sujets qui nécessitent la sélection d'une région
-const SUBJECTS_NEED_REGION = new Set([
+// Sujets pris en charge par les coordonnateurs Mobilisation des membres
+const SUBJECTS_MOBILISATION = new Set([
   "Plaintes",
   "Règlementation",
   "Reclassification (équipe)",
-  "Surclassement et sous-classement (joueur·se)",
-  "Officiel·le / Formations" //
+  "Surclassement et sous-classement (joueur·se)"
+]);
+
+// Sujets qui nécessitent la sélection d'une région
+const SUBJECTS_NEED_REGION = new Set([
+  ...SUBJECTS_MOBILISATION,
+  "Officiel·le / Formations"
 ]);
 
 function onTopic(sel){
   const val = sel.value;
   const regSel = document.getElementById("provRegionSelect");
+  const rseqOption = document.getElementById("provRseqOption");
   const res = document.getElementById("provResults");
   res.innerHTML = "";
+  regSel.value = "";
+
+  // Le RSEQ est offert uniquement pour les sujets liés à la Mobilisation.
+  const showRseq = SUBJECTS_MOBILISATION.has(val);
+  rseqOption.hidden = !showRseq;
+  rseqOption.disabled = !showRseq;
 
   if(!val){ regSel.classList.add("hidden"); return; }
 
