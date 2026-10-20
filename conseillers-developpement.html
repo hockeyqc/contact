@@ -5,34 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contacter un conseiller en développement hockey | Hockey Québec</title>
   <style>
-    :root { color-scheme: light; font-family: Arial, sans-serif; color: #17213a; background: #fff; }
+
+    :root { color-scheme: light; font-family: "Avenir Next", Avenir, "Segoe UI", Arial, sans-serif; color: #122044; background: #fff; font-synthesis: none; }
     * { box-sizing: border-box; }
-    body { margin: 0; padding: 24px 16px; }
-    main { max-width: 760px; margin: 0 auto; }
-    .panel { border: 1px solid #dce4ee; border-top: 5px solid #0031ff; border-radius: 12px; padding: 28px; }
-    h1 { margin: 0 0 14px; font-size: clamp(24px, 4vw, 30px); line-height: 1.2; color: #0031ff; }
-    p { line-height: 1.55; margin: 0 0 20px; }
-    label { display: block; font-size: 16px; font-weight: 700; margin: 24px 0 10px; }
-    select { width: 100%; min-height: 50px; padding: 12px; border: 1px solid #8997ad; border-radius: 7px; background: #fff; color: #17213a; font: inherit; }
+    body { margin: 0; padding: 16px; }
+    main { max-width: 900px; margin: 0 auto; }
+    .panel { border: 1px solid #e0e7f1; border-radius: 24px; overflow: hidden; background: #f5f8fd; }
+    .hero { position: relative; isolation: isolate; overflow: hidden; padding: 40px 38px 38px; background: #0031ff; color: white; }
+    .hero::before { content: ""; z-index: -1; position: absolute; width: 270px; height: 390px; border: 1px solid #ffffff26; border-radius: 150px; right: -100px; top: -95px; transform: rotate(32deg); box-shadow: 0 0 0 36px #ffffff08, 0 0 0 72px #ffffff06; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 24px; font-size: 12px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #78c8e7; }
+    h1 { max-width: 650px; margin: 0 0 18px; font-size: clamp(29px, 4.8vw, 43px); font-weight: 750; letter-spacing: -.045em; line-height: 1.12; text-wrap: balance; }
+    h1 span { color: #bfeaff; }
+    p { line-height: 1.6; margin: 0; }
+    .intro { max-width: 600px; color: #edf3ff; font-size: 16px; }
+    .form-body { padding: 30px 38px 26px; }
+    .field-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .step { display: grid; place-items: center; width: 28px; height: 28px; flex: 0 0 28px; border-radius: 50%; background: #e6ecff; color: #0031ff; font-size: 12px; font-weight: 750; }
+    label { display: block; font-size: 17px; font-weight: 700; }
+    .select-wrap { position: relative; }
+    .select-wrap::after { content: ""; pointer-events: none; position: absolute; right: 22px; top: 23px; width: 9px; height: 9px; border: solid #0031ff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+    select { appearance: none; width: 100%; min-width: 0; min-height: 60px; padding: 16px 48px 16px 18px; border: 1px solid #becbe2; border-radius: 12px; background: #fff; color: #122044; font: inherit; font-size: 16px; cursor: pointer; box-shadow: 0 3px 12px #12204404; transition: border-color .15s, box-shadow .15s; }
+    select:hover { border-color: #0031ff; }
     select:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid #0031ff; outline-offset: 4px; }
-    .hint { font-size: 14px; color: #4b5a70; margin-top: 10px; }
-    #results:not(:empty) { margin-top: 24px; }
-    h2 { font-size: 20px; margin: 0 0 14px; line-height: 1.35; }
-    .card { padding: 18px; border-radius: 8px; background: #f2faff; border-left: 4px solid #78c8e7; margin-top: 12px; }
-    h3 { font-size: 19px; margin: 0 0 6px; line-height: 1.35; }
-    .role { color: #4b5a70; font-size: 15px; margin: 0 0 12px; }
-    .email { color: #0031ff; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; }
-    button { border: 0; background: transparent; padding: 10px 0; margin-top: 14px; font: inherit; color: #0031ff; text-decoration: underline; cursor: pointer; min-height: 44px; }
+    .hint { font-size: 13px; color: #52617c; margin-top: 12px; max-width: 580px; }
+    #results:not(:empty) { margin-top: 28px; padding-top: 26px; border-top: 1px solid #dce4f0; }
+    h2 { font-size: 18px; font-weight: 700; margin: 0; line-height: 1.4; letter-spacing: -.02em; }
+    .results-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .contact-grid.single { grid-template-columns: minmax(0, 1fr); }
+    .card { display: flex; flex-direction: column; min-width: 0; padding: 23px; border: 1px solid #e0e7f1; border-radius: 16px; background: white; box-shadow: 0 5px 20px #12204404; animation: reveal .25s ease-out; }
+    .person { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 22px; }
+    .avatar { display: grid; place-items: center; flex: 0 0 46px; width: 46px; height: 46px; border-radius: 14px; background: #eaf7fc; color: #164779; font-size: 15px; font-weight: 750; letter-spacing: -.03em; }
+    .identity { min-width: 0; }
+    h3 { font-size: 20px; font-weight: 750; margin: 0 0 6px; line-height: 1.25; letter-spacing: -.025em; overflow-wrap: anywhere; }
+    .role { color: #52617c; font-size: 13px; line-height: 1.5; }
+    .email { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; margin-top: auto; padding: 13px 15px; border-radius: 10px; background: #0031ff; color: white; text-decoration: none; transition: background .15s; }
+    .email:hover { background: #0027cc; }
+    .email-text { min-width: 0; font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }
+    .mail-icon { width: 19px; height: 19px; flex: 0 0 19px; }
+    button { display: inline-flex; align-items: center; gap: 8px; border: 0; background: transparent; padding: 12px 0; margin-top: 14px; font: inherit; font-size: 14px; font-weight: 600; color: #344b78; cursor: pointer; min-height: 48px; }
+    button:hover { color: #0031ff; text-decoration: underline; }
+    .footer { padding-top: 20px; margin-top: 22px; border-top: 1px solid #dce4f0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; color: #52617c; }
+    .brand { color: #0031ff; font-weight: 800; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
     [hidden] { display: none !important; }
-    @media (max-width: 420px) { body { padding: 12px 8px; } .panel { padding: 20px 16px; } .card { padding: 16px 12px; } }
+    @keyframes reveal { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 620px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } .hero { padding: 30px 24px; } .form-body { padding: 24px; } }
+    @media (max-width: 380px) { body { padding: 8px; } .panel { border-radius: 18px; } .hero { padding: 28px 18px; } .form-body { padding: 22px 16px; } h1 { font-size: 29px; } .card { padding: 18px 14px; } .person { gap: 11px; } .avatar { width: 40px; height: 40px; flex-basis: 40px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
   </style>
 </head>
 <body>
   <main>
     <section class="panel" aria-labelledby="title">
-      <h1 id="title">Organiser une activité avec un conseiller en développement hockey</h1>
-      <p>Vous souhaitez organiser une activité dans votre association de hockey mineur? Sélectionnez votre région pour trouver les coordonnées du conseiller en développement hockey à contacter.</p>
-      <label for="region">Votre région</label>
+      <header class="hero">
+        <div class="eyebrow">Développement hockey</div>
+        <h1 id="title">Organiser une activité<br><span>avec un conseiller en développement hockey</span></h1>
+      <p class="intro">Vous souhaitez organiser une activité dans votre association de hockey mineur? Sélectionnez votre région pour trouver les coordonnées du conseiller en développement hockey à contacter.</p>
+      </header>
+      <div class="form-body">
+      <div class="field-heading"><span class="step" aria-hidden="true">01</span><label for="region">Choisissez votre région</label></div>
+      <div class="select-wrap">
       <select id="region" aria-controls="results" aria-describedby="hint">
         <option value="">— Sélectionnez votre région —</option>
         <option value="ouest">Abitibi-Témiscamingue</option>
@@ -51,10 +84,13 @@
         <option value="est">Saguenay–Lac-Saint-Jean</option>
         <option value="autochtones">Communautés autochtones</option>
       </select>
+      </div>
       <p id="hint" class="hint">Pour une activité auprès d’une communauté autochtone, choisissez « Communautés autochtones ».</p>
       <div id="results" role="status" aria-live="polite" aria-atomic="true"></div>
-      <button id="reset" type="button" hidden>Recommencer</button>
+      <button id="reset" type="button" hidden>↺&nbsp; Recommencer</button>
       <noscript><p>Activez JavaScript pour sélectionner votre région et afficher les coordonnées du conseiller.</p></noscript>
+      <footer class="footer"><span class="brand">Hockey Québec</span><span>Au service du hockey dans votre région.</span></footer>
+      </div>
     </section>
   </main>
   <script>
@@ -80,7 +116,16 @@
       if (!selected) return;
       const heading = document.createElement('h2');
       heading.textContent = selected.length > 1 ? 'Les conseillers à contacter' : 'Le conseiller à contacter';
-      results.append(heading);
+      const headingWrap = document.createElement('div');
+      headingWrap.className = 'results-heading';
+      const step = document.createElement('span');
+      step.className = 'step';
+      step.setAttribute('aria-hidden', 'true');
+      step.textContent = '02';
+      headingWrap.append(step, heading);
+      const grid = document.createElement('div');
+      grid.className = 'contact-grid' + (selected.length === 1 ? ' single' : '');
+      results.append(headingWrap, grid);
       selected.forEach(contact => {
         const card = document.createElement('div');
         card.className = 'card';
@@ -93,8 +138,33 @@
         email.className = 'email';
         email.href = 'mailto:' + contact.email;
         email.textContent = contact.email;
-        card.append(name, role, email);
-        results.append(card);
+        const person = document.createElement('div');
+        person.className = 'person';
+        const avatar = document.createElement('span');
+        avatar.className = 'avatar';
+        avatar.setAttribute('aria-hidden', 'true');
+        avatar.textContent = contact.name.split(' ').map(part => part[0]).join('');
+        const identity = document.createElement('div');
+        identity.className = 'identity';
+        identity.append(name, role);
+        person.append(avatar, identity);
+        const emailText = document.createElement('span');
+        emailText.className = 'email-text';
+        emailText.textContent = contact.email;
+        const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        icon.setAttribute('class', 'mail-icon');
+        icon.setAttribute('viewBox', '0 0 24 24');
+        icon.setAttribute('fill', 'none');
+        icon.setAttribute('stroke', 'currentColor');
+        icon.setAttribute('stroke-width', '1.7');
+        icon.setAttribute('aria-hidden', 'true');
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M4 6h16v12H4z M4 6l8 7 8-7');
+        icon.append(path);
+        email.replaceChildren();
+        email.append(emailText, icon);
+        card.append(person, email);
+        grid.append(card);
       });
     }
     region.addEventListener('change', render);
